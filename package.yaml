@@ -1,0 +1,45 @@
+
+name: todo-auth
+dependencies:
+- base
+- text
+- bytestring
+- time
+- directory
+- containers
+- mtl
+- http-api-data
+- microlens
+- aeson
+- extensible
+- servant
+- servant-server
+- servant-auth-server
+- wreq
+- hspec
+
+library:
+  source-dirs: src
+
+executables:
+  todo-auth-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:  
+    - todo-auth
+
+tests:
+  todo-auth-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - todo-auth
+
