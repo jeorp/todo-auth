@@ -3,3 +3,4 @@ resolver: lts-18.16
 extra-deps:
 - extensible-0.8
 - membership-0.0.1
+- servant-lucid-0.9.0.4

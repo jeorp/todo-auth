@@ -12,9 +12,12 @@ dependencies:
 - microlens
 - aeson
 - extensible
+- lucid
 - servant
 - servant-server
+- servant-lucid
 - servant-auth-server
+- warp
 - wreq
 - hspec
 
