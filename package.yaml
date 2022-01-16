@@ -13,6 +13,7 @@ dependencies:
 - aeson
 - extensible
 - lucid
+- sqlite-simple
 - servant
 - servant-server
 - servant-lucid
