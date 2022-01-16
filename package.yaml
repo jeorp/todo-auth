@@ -6,12 +6,14 @@ dependencies:
 - bytestring
 - time
 - directory
+- vector
 - containers
 - mtl
 - http-api-data
 - microlens
 - aeson
 - attoparsec
+- cassava
 - extensible
 - lucid
 - sqlite-simple

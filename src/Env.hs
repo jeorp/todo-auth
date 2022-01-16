@@ -13,9 +13,9 @@ import Servant.Auth.Server (FromJWT, ToJWT)
 
 type User = Record
   '[ 
-     "auth" >: T.Text,
-     "name" >: T.Text,
-     "user_id" >: T.Text
+     "user_id_const" >: Int,
+     "auth_method" >: T.Text,
+     "user_name" >: T.Text
    ]
 
 instance ToJWT User

@@ -1,4 +1,4 @@
-module Time where 
+module Utility.Time where 
 import Data.Time.Calendar
 import Data.Time.Clock
 import Data.Time.LocalTime
