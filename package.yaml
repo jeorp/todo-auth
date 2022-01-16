@@ -11,11 +11,13 @@ dependencies:
 - http-api-data
 - microlens
 - aeson
+- attoparsec
 - extensible
 - lucid
 - sqlite-simple
 - servant
 - servant-server
+- servant-js
 - servant-lucid
 - servant-auth-server
 - warp

@@ -25,6 +25,13 @@ packages:
       sha256: 39e0e7b2b25980bfe4df036e89959188f9ef9e8c78c85e241fa9a682d1d78cf3
   original:
     hackage: servant-lucid-0.9.0.4
+- completed:
+    hackage: servant-js-0.9.4.2@sha256:8376ab122b48427f190e9289e659a68dc382f1739ac610514f524a2c22386a52,3531
+    pantry-tree:
+      size: 961
+      sha256: c28356e34444a1ce680b3f7e935d59348ab79dc25db7dbea8db3330d7c52c4e8
+  original:
+    hackage: servant-js-0.9.4.2
 snapshots:
 - completed:
     size: 586286
