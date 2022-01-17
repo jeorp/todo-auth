@@ -1,8 +1,11 @@
 {-# LANGUAGE DataKinds                  #-}
-{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE OverloadedLabels           #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TypeOperators              #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE TypeApplications  #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Common where
 import Data.Proxy
@@ -35,5 +38,8 @@ type Todo = Record TodoFields
 
 type TodoFnished = Record TodoFinishedFields
 
-instance FromForm (Record xs) where
-  fromForm form = undefined
+
+instance Forall (KeyTargetAre KnownSymbol FromHttpApiData) xs 
+    => FromForm (Record xs) where
+  fromForm form = hgenerateFor (Proxy @ (KeyTargetAre KnownSymbol FromHttpApiData)) 
+    $ \m -> let k = stringKeyOf m in Field <$> parseUnique k form
