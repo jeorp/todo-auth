@@ -8,6 +8,8 @@ dependencies:
 - directory
 - vector
 - containers
+- unordered-containers
+- constraints
 - mtl
 - http-api-data
 - microlens
