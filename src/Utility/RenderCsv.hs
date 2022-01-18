@@ -28,15 +28,8 @@ instance Forall (KeyTargetAre KnownSymbol FromField) xs => FromNamedRecord (Reco
   parseNamedRecord r = hgenerateFor (Proxy @ (KeyTargetAre KnownSymbol FromField)) $ 
     \m -> let k = symbolVal (proxyKeyOf m) in Field . pure <$> r .: fromString k
 
-{- can not compile (; ;)
-instance Forall (KeyTargetAre KnownSymbol ToField) xs => ToNamedRecord (Record xs) where
-  toNamedRecord _ = HM.fromList . flip appEndo mempty . getConst . hgenerateFor (Proxy @ (KeyTargetAre KnownSymbol FromField)) $
-    \m -> let k = symbolVal (proxyKeyOf m) in Field . pure <$> Const $ Endo ((fromString k .= proxyTargetOf m):)
--}
-
-
 instance Forall (KeyTargetAre KnownSymbol ToField) xs => ToNamedRecord  (Record xs) where
   toNamedRecord = HM.fromList . flip appEndo [] . hfoldMap getConst . hzipWith
     (\(Comp Dict) -> Const . Endo . (:) .
-      liftA2 (.=) (fromString . symbolVal . proxyKeyOf) (runIdentity . getField))
+      liftA2 (.=) (fromString . symbolVal . proxyKeyOf) getField) -- <- getField or (runIndentity . getField) ??
     (library :: xs :& Comp Dict (KeyTargetAre KnownSymbol ToField))
